@@ -5,7 +5,7 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/user
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/search_engine
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -17,3 +17,7 @@ indexing-settings:
       name: Skillbox
     - url: https://www.playback.ru
       name: PlayBack.Ru
+
+
+
+

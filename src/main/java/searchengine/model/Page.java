@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Page {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "site_id", nullable = false)

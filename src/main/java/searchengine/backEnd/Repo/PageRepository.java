@@ -1,9 +1,9 @@
-package searchengine.Repo;
+package searchengine.backEnd.Repo;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import searchengine.model.Page;
 
 @Repository
-public interface PageRepository extends CrudRepository<Page,Long> {
+public interface PageRepository extends CrudRepository<Page,Integer> {
 }

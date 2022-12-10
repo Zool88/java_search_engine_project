@@ -2,9 +2,7 @@ package searchengine.model;
 
 import lombok.Data;
 import searchengine.Enum.SiteEnumStatus;
-
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Data
@@ -13,15 +11,16 @@ public class Sites {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @Column(columnDefinition = "ENUM('INDEXING', 'INDEXED', 'FAILED')NOT NULL")
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private SiteEnumStatus status;
 
-    @Column(name = "status_time",columnDefinition = "DATETIME NOT NULL")
-    private Date statusTime;
+    @Column(name = "status_time", columnDefinition = "DATETIME NOT NULL")
+    private String statusTime;
 
-    @Column(name = "last_error",columnDefinition = "TEXT")
+    @Column(name = "last_error", columnDefinition = "TEXT")
     private String lastError;
 
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
@@ -30,5 +29,20 @@ public class Sites {
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String name;
 
+    public Sites() {
 
+    }
+
+    public Sites(
+            SiteEnumStatus status,
+            String statusTime,
+            String lastError,
+            String url,
+            String name) {
+        this.status = status;
+        this.statusTime = statusTime;
+        this.lastError = lastError;
+        this.url = url;
+        this.name = name;
+    }
 }
